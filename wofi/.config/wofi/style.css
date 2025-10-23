@@ -1,0 +1,149 @@
+/* ============================================
+   Tokyo Night Moon - Wofi Theme
+   Compact, minimal launcher style
+   ============================================ */
+
+/* ===== COLOR PALETTE =====
+   Background: #222436
+   Foreground: #c8d3f5
+   Selection:  #2d3f76
+   Accent:     #82aaff
+   Purple:     #c099ff
+   Cyan:       #86e1fc
+   Red:        #ff757f
+   Orange:     #ff966c
+   Yellow:     #ffc777
+   Green:      #c3e88d
+   Border:     #444a73
+   Subtle:     #2f334d
+   ========================= */
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    font-family: "Zenbones Mono", monospace;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* ===== LAYOUT ===== */
+#window {
+    background-color: #222436;
+    border: 1px solid #444a73;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+#outer-box {
+    background-color: transparent;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+#scroll {
+    background-color: transparent;
+    margin-top: 4px;
+    border-radius: 4px;
+}
+
+#scroll viewport {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+scrollbar,
+scrollbar * {
+    all: unset;
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+
+#inner-box {
+    background-color: transparent;
+    padding: 3px;
+    border-radius: 4px;
+}
+
+/* ===== INPUT FIELD ===== */
+#input {
+    background-color: #2f334d;
+    border: 1px solid #444a73;
+    border-radius: 4px;
+    color: #c8d3f5;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#input:focus {
+    background-color: #2d3f76;
+    border-color: #82aaff;
+    box-shadow: 0 0 0 2px rgba(130, 170, 255, 0.15);
+    outline: none;
+}
+
+#input::placeholder {
+    color: #828bb8;
+    opacity: 0.6;
+}
+
+/* ===== LIST ENTRIES ===== */
+#entry {
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid transparent;
+    border-radius: 4px;
+    color: #c8d3f5;
+    padding: 6px 10px;
+    margin: 1px 0;
+    transition: all 0.15s ease;
+}
+
+#entry:nth-child(even) {
+    background-color: rgba(47, 51, 77, 0.2);
+}
+
+#entry:hover {
+    background-color: rgba(130, 170, 255, 0.12);
+    border-left-color: #82aaff;
+    color: #82aaff;
+}
+
+#entry:selected {
+    background-color: #2d3f76;
+    border-left-color: #82aaff;
+    color: #c8d3f5;
+    font-weight: 500;
+}
+
+#entry:selected:hover {
+    background-color: rgba(130, 170, 255, 0.2);
+}
+
+/* ===== TEXT & ICONS ===== */
+#text {
+    color: inherit;
+    font-weight: inherit;
+}
+
+#entry:selected #text {
+    color: #c8d3f5;
+    font-weight: 500;
+}
+
+#entry:hover #text {
+    color: #82aaff;
+}
+
+#img {
+    margin-right: 10px;
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+}
+
+#entry:selected #img,
+#entry:hover #img {
+    opacity: 1;
+}
