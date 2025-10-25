@@ -1,0 +1,13 @@
+appimagelauncher
+bun-bin
+dbeaver-ce-jre-bin
+paru
+postman-bin
+rustdesk-bin
+syncthingtray-qt6
+ttf-zenbones
+vencord-installer
+visual-studio-code-bin
+wezterm-git
+zen-browser-bin
+zsa-keymapp-bin
