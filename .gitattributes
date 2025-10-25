@@ -1,0 +1,12 @@
+# Force LF line endings for all text files
+* text=auto eol=lf
+
+# Explicitly declare text files for bootstrap scripts and configs
+*.sh text eol=lf
+*.txt text eol=lf
+*.conf text eol=lf
+*.config text eol=lf
+*.json text eol=lf
+
+# Ensure package lists use LF
+bootstrap/*.txt text eol=lf

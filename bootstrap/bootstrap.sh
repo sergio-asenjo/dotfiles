@@ -61,29 +61,33 @@ update_system() {
 # Install pacman packages
 install_pacman_packages() {
     local pkglist="$1"
-    
+
     if [ ! -f "$pkglist" ]; then
         print_error "Package list not found: $pkglist"
         exit 1
     fi
-    
+
     print_info "Installing official repository packages..."
-    
+
     # Read packages into an array, filtering out comments and empty lines
     local packages=()
-    while IFS= read -r line; do
+    while IFS= read -r line || [[ -n "$line" ]]; do
         # Skip comments and empty lines
         [[ "$line" =~ ^#.*$ ]] && continue
         [[ -z "$line" ]] && continue
+        # Remove carriage return if present (Windows line endings)
+        line="${line%$'\r'}"
         packages+=("$line")
     done < "$pkglist"
-    
+
     if [ ${#packages[@]} -eq 0 ]; then
         print_warning "No packages to install from $pkglist"
         return
     fi
-    
-    print_info "Packages to install: ${packages[*]}"
+
+    print_info "Found ${#packages[@]} packages to install"
+    print_info "First few packages: ${packages[0]} ${packages[1]} ${packages[2]}"
+    print_info "Installing packages..."
     sudo pacman -S --needed --noconfirm "${packages[@]}"
     print_success "Official packages installed successfully"
 }
@@ -179,12 +183,16 @@ main() {
         print_info "Package list not found locally, downloading from repository..."
         curl -fsSL "$BASE_URL/pacman-pkglist.txt" -o "$PACMAN_PKGLIST"
         print_success "Downloaded pacman-pkglist.txt"
+        # Ensure proper line endings
+        sed -i 's/\r$//' "$PACMAN_PKGLIST"
     fi
     
     if [ ! -f "$AUR_PKGLIST" ]; then
         print_info "AUR package list not found locally, downloading from repository..."
         curl -fsSL "$BASE_URL/aur-pkglist.txt" -o "$AUR_PKGLIST"
         print_success "Downloaded aur-pkglist.txt"
+        # Ensure proper line endings
+        sed -i 's/\r$//' "$AUR_PKGLIST"
     fi
     
     # Run checks and installations
