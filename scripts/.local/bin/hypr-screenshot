@@ -1,0 +1,56 @@
+#!/bin/bash
+set -euo pipefail
+
+# Ensure Wayland display is set
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-1}"
+export GDK_BACKEND=wayland
+
+# Configuration
+readonly SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
+readonly FILENAME="Screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+readonly FILEPATH="$SCREENSHOTS_DIR/$FILENAME"
+
+# Ensure the directory exists
+mkdir -p "$SCREENSHOTS_DIR"
+
+# Function to capture and save screenshot
+capture_screenshot() {
+    local cmd="$1"
+    eval "$cmd" | tee "$FILEPATH" | wl-copy --type image/png
+}
+
+# Get user choice from wofi
+choice=$(printf "Capture area\nCapture window\nCapture monitor\nEdit last screenshot" | wofi --dmenu -p "Screenshot" 2>/dev/null) || exit 0
+
+# Small delay to let wofi close
+sleep 0.5
+
+# Process the user's choice
+case "$choice" in
+    "Capture area")
+        capture_screenshot "grim -g \"\$(slurp)\" -"
+        ;;
+    "Capture window")
+        # Parse window geometry more efficiently
+        read -r x y w h < <(hyprctl activewindow -j 2>/dev/null | 
+            awk -F'[][, ]+' '/"at":/ {x=$3; y=$4} /"size":/ {w=$3; h=$4} END {print x, y, w, h}')
+        if [[ -n "$x" && -n "$y" && -n "$w" && -n "$h" ]]; then
+            capture_screenshot "grim -g \"${x},${y} ${w}x${h}\" -"
+        fi
+        ;;
+    "Capture monitor")
+        # Get focused monitor more efficiently
+        monitor=$(hyprctl monitors 2>/dev/null | awk '/^Monitor/ {mon=$2} /focused: yes/ {print mon; exit}')
+        if [[ -n "$monitor" ]]; then
+            capture_screenshot "grim -o \"$monitor\" -"
+        fi
+        ;;
+    "Edit last screenshot")
+        # Find and edit the most recent screenshot
+        last_screenshot=$(find "$SCREENSHOTS_DIR" -maxdepth 1 -type f -name "Screenshot_*.png" -printf '%T@ %p\n' 2>/dev/null | 
+            sort -rn | head -n1 | cut -d' ' -f2-)
+        if [[ -n "$last_screenshot" ]] && command -v swappy &>/dev/null; then
+            swappy -f "$last_screenshot" 2>/dev/null &
+        fi
+        ;;
+esac
