@@ -163,7 +163,7 @@ main() {
     check_arch_linux
     check_git
     
-    # Ask for confirmation before proceeding
+    # Ask for confirmation before proceeding (skip if not interactive)
     echo ""
     print_warning "This script will:"
     echo "  1. Update your system"
@@ -173,12 +173,17 @@ main() {
     echo "  5. Ensure stow is ready for use"
     echo ""
     
-    read -p "Do you want to continue? (y/N) " -n 1 -r
-    echo ""
-    
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        print_info "Bootstrap cancelled by user"
-        exit 0
+    # Check if stdin is a terminal (interactive mode)
+    if [ -t 0 ]; then
+        read -p "Do you want to continue? (y/N) " -n 1 -r
+        echo ""
+        
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            print_info "Bootstrap cancelled by user"
+            exit 0
+        fi
+    else
+        print_info "Running in non-interactive mode, proceeding automatically..."
     fi
     
     echo ""
