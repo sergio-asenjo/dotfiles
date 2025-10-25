@@ -69,16 +69,22 @@ install_pacman_packages() {
     
     print_info "Installing official repository packages..."
     
-    # Read packages and filter out empty lines
-    local packages=$(grep -v '^#' "$pkglist" | grep -v '^$' | tr '\n' ' ')
+    # Read packages into an array, filtering out comments and empty lines
+    local packages=()
+    while IFS= read -r line; do
+        # Skip comments and empty lines
+        [[ "$line" =~ ^#.*$ ]] && continue
+        [[ -z "$line" ]] && continue
+        packages+=("$line")
+    done < "$pkglist"
     
-    if [ -z "$packages" ]; then
+    if [ ${#packages[@]} -eq 0 ]; then
         print_warning "No packages to install from $pkglist"
         return
     fi
     
-    print_info "Packages to install: $packages"
-    sudo pacman -S --needed --noconfirm $packages
+    print_info "Packages to install: ${packages[*]}"
+    sudo pacman -S --needed --noconfirm "${packages[@]}"
     print_success "Official packages installed successfully"
 }
 
@@ -124,16 +130,22 @@ install_aur_packages() {
     
     print_info "Installing AUR packages..."
     
-    # Read packages and filter out empty lines
-    local packages=$(grep -v '^#' "$pkglist" | grep -v '^$' | tr '\n' ' ')
+    # Read packages into an array, filtering out comments and empty lines
+    local packages=()
+    while IFS= read -r line; do
+        # Skip comments and empty lines
+        [[ "$line" =~ ^#.*$ ]] && continue
+        [[ -z "$line" ]] && continue
+        packages+=("$line")
+    done < "$pkglist"
     
-    if [ -z "$packages" ]; then
+    if [ ${#packages[@]} -eq 0 ]; then
         print_warning "No AUR packages to install from $pkglist"
         return
     fi
     
-    print_info "AUR packages to install: $packages"
-    paru -S --needed --noconfirm $packages
+    print_info "AUR packages to install: ${packages[*]}"
+    paru -S --needed --noconfirm "${packages[@]}"
     print_success "AUR packages installed successfully"
 }
 
