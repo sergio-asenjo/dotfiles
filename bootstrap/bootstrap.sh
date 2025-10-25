@@ -159,6 +159,22 @@ main() {
     PACMAN_PKGLIST="$SCRIPT_DIR/pacman-pkglist.txt"
     AUR_PKGLIST="$SCRIPT_DIR/aur-pkglist.txt"
     
+    # Base URL for package lists (raw GitHub content)
+    BASE_URL="https://raw.githubusercontent.com/sergio-asenjo/dotfiles/main/bootstrap"
+    
+    # Download package lists if not found locally
+    if [ ! -f "$PACMAN_PKGLIST" ]; then
+        print_info "Package list not found locally, downloading from repository..."
+        curl -fsSL "$BASE_URL/pacman-pkglist.txt" -o "$PACMAN_PKGLIST"
+        print_success "Downloaded pacman-pkglist.txt"
+    fi
+    
+    if [ ! -f "$AUR_PKGLIST" ]; then
+        print_info "AUR package list not found locally, downloading from repository..."
+        curl -fsSL "$BASE_URL/aur-pkglist.txt" -o "$AUR_PKGLIST"
+        print_success "Downloaded aur-pkglist.txt"
+    fi
+    
     # Run checks and installations
     check_arch_linux
     check_git
