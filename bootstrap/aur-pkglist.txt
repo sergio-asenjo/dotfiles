@@ -6,7 +6,6 @@ postman-bin
 rustdesk-bin
 syncthingtray-qt6
 ttf-zenbones
-vencord-installer
 visual-studio-code-bin
 wezterm-git
 zen-browser-bin
