@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
+    background: linear-gradient(90deg, rgba(51, 204, 255, 0.5) 0%, rgba(0, 255, 153, 0.5) 100%);
     color: #ffffff;
-    transition-property: background-color;
+    transition-property: background;
     transition-duration: .5s;
 }
 
@@ -43,13 +43,13 @@ button:hover {
 #workspaces button {
     padding: 2px 8px;
     background-color: transparent;
-    color: #cccccc;
+    color: #ffffff;
     border-bottom: 2px solid transparent;
 }
 
 #workspaces button:hover {
     color: #ffffff;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button.empty {
@@ -58,18 +58,20 @@ button:hover {
 }
 
 #workspaces button.active {
-    color: #1dd1a1;
-    border-bottom: 2px solid #1dd1a1;
+    color: #00ff99;
+    border-bottom: 3px solid #00ff99;
+    font-weight: 900;
 }
 
 #workspaces button.visible:not(.active) {
-    color: #ff6b35;
-    border-bottom: 2px solid #ff6b35;
+    color: #33ccff;
+    border-bottom: 2px solid #33ccff;
 }
 
 #workspaces button.urgent {
-    color: #eb4d4b;
-    border-bottom: 2px solid #eb4d4b;
+    color: #ffff00;
+    border-bottom: 3px solid #ffff00;
+    font-weight: 900;
 }
 
 #mode {
@@ -176,6 +178,10 @@ label:focus {
 
 #tray {
     color: #ffffff;
+    background: linear-gradient(90deg, rgba(51, 204, 255, 0.3) 0%, rgba(0, 255, 153, 0.3) 100%);
+    padding: 0 10px;
+    border-radius: 5px;
+    margin: 0 5px;
 }
 
 #tray > .passive {

@@ -39,7 +39,7 @@
         }
     },
     "hyprland/window": {
-        "max-lenght": 40,
+        "max-length": 40,
         "separate-outputs": false
     },
     "keyboard-state": {

@@ -1,21 +1,14 @@
 /* ============================================
-   Tokyo Night Moon - Wofi Theme
-   Compact, minimal launcher style
+   High Contrast Dark Theme - Wofi
+   Matches Waybar gradient with cyan-to-green
    ============================================ */
 
 /* ===== COLOR PALETTE =====
-   Background: #222436
-   Foreground: #c8d3f5
-   Selection:  #2d3f76
-   Accent:     #82aaff
-   Purple:     #c099ff
-   Cyan:       #86e1fc
-   Red:        #ff757f
-   Orange:     #ff966c
-   Yellow:     #ffc777
-   Green:      #c3e88d
-   Border:     #444a73
-   Subtle:     #2f334d
+   Background: #0a0e27
+   Foreground: #ffffff
+   Accent:     #33ccff (cyan)
+   Highlight:  #00ff99 (green)
+   Border:     #33ccff
    ========================= */
 
 /* ===== GLOBAL STYLES ===== */
@@ -27,51 +20,51 @@
 
 /* ===== LAYOUT ===== */
 #window {
-    background-color: #222436;
-    border: 1px solid #444a73;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    background-color: #0a0e27;
+    border: 2px solid #33ccff;
+    border-radius: 0px;
+    box-shadow: 0 4px 12px rgba(51, 204, 255, 0.3);
 }
 
 #outer-box {
     background-color: transparent;
-    padding: 6px;
-    border-radius: 5px;
+    padding: 3px;
+    border-radius: 0px;
 }
 
 #scroll {
     background-color: transparent;
-    margin-top: 4px;
-    border-radius: 4px;
+    margin-top: 2px;
+    border-radius: 0px;
 }
 
 #scroll viewport {
     background-color: transparent;
-    border-radius: 4px;
+    border-radius: 0px;
 }
 
 #inner-box {
     background-color: transparent;
-    padding: 3px;
-    border-radius: 4px;
+    padding: 1px;
+    border-radius: 0px;
 }
 
 /* ===== INPUT FIELD ===== */
 #input {
-    background-color: #2f334d;
-    border: 1px solid #444a73;
-    border-radius: 4px;
-    color: #c8d3f5;
-    padding: 6px 10px;
-    margin-bottom: 4px;
+    background-color: rgba(51, 204, 255, 0.1);
+    border: 1px solid #33ccff;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 4px 8px;
+    margin-bottom: 2px;
     font-size: 12px;
     font-weight: 400;
 }
 
 #input:focus {
-    background-color: #2d3f76;
-    border-color: #82aaff;
-    box-shadow: 0 0 0 2px rgba(130, 170, 255, 0.15);
+    background-color: rgba(51, 204, 255, 0.2);
+    border-color: #00ff99;
+    box-shadow: 0 0 0 2px rgba(0, 255, 153, 0.3);
     outline: none;
 }
 
@@ -80,28 +73,29 @@
     background-color: transparent;
     border: none;
     border-left: 2px solid transparent;
-    border-radius: 4px;
-    color: #c8d3f5;
-    padding: 6px 10px;
-    margin: 1px 0;
+    border-radius: 0px;
+    color: #ffffff;
+    padding: 3px 8px;
+    margin: 0px;
     transition: all 0.15s ease;
 }
 
 #entry:hover {
-    background-color: rgba(130, 170, 255, 0.12);
-    border-left-color: #82aaff;
-    color: #82aaff;
+    background-color: rgba(51, 204, 255, 0.15);
+    border-left-color: #33ccff;
+    color: #33ccff;
 }
 
 #entry:selected {
-    background-color: #2d3f76;
-    border-left-color: #82aaff;
-    color: #c8d3f5;
+    background-color: rgba(0, 255, 153, 0.2);
+    border-left-color: #00ff99;
+    color: #00ff99;
     font-weight: 500;
 }
 
 #entry:selected:hover {
-    background-color: rgba(130, 170, 255, 0.2);
+    background-color: rgba(0, 255, 153, 0.3);
+    color: #00ff99;
 }
 
 /* ===== TEXT & ICONS ===== */
@@ -111,17 +105,17 @@
 }
 
 #entry:selected #text {
-    color: #c8d3f5;
+    color: #00ff99;
     font-weight: 500;
 }
 
 #entry:hover #text {
-    color: #82aaff;
+    color: #33ccff;
 }
 
 #img {
     margin-right: 10px;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.15s ease;
 }
 

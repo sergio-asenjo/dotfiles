@@ -1,5 +1,5 @@
-width=600
-height=200
+width=500
+height=120
 show=drun
 prompt=Search...
 filter_rate=100
@@ -9,7 +9,7 @@ halign=fill
 content_halign=fill
 insensitive=true
 allow_images=true
-image_size=32
+image_size=24
 gtk_dark=true
 columns=1
 hide_scroll=false
