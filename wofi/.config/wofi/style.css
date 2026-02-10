@@ -1,101 +1,105 @@
 /* ============================================
-   High Contrast Dark Theme - Wofi
-   Matches Waybar gradient with cyan-to-green
+   Waybar Coordinated Compact - Wofi
+   Cyan/green accents matching waybar gradient
    ============================================ */
 
-/* ===== COLOR PALETTE =====
-   Background: #0a0e27
-   Foreground: #ffffff
-   Accent:     #33ccff (cyan)
-   Highlight:  #00ff99 (green)
-   Border:     #33ccff
+/* ===== COLOR PALETTE (from waybar) =====
+   Background: #0a0e27  (dark navy - original wofi bg)
+   Surface:    #0f1528  (slightly lighter)
+   Foreground: #e0e0e0  (bright gray)
+   Bright:     #ffffff  (white)
+   Cyan:       #33ccff  (from waybar gradient)
+   Green:      #00ff99  (from waybar gradient)
+   Dim text:   #909090  (muted gray)
+   Border:     #1a3a5c  (dark cyan-border)
    ========================= */
 
 /* ===== GLOBAL STYLES ===== */
 * {
     font-family: "Zenbones Mono", monospace;
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: 500;
 }
 
-/* ===== LAYOUT ===== */
+/* ===== MAIN WINDOW ===== */
 #window {
     background-color: #0a0e27;
-    border: 2px solid #33ccff;
-    border-radius: 0px;
-    box-shadow: 0 4px 12px rgba(51, 204, 255, 0.3);
+    border: 2px solid #1a3a5c;
+    border-radius: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 #outer-box {
     background-color: transparent;
-    padding: 3px;
-    border-radius: 0px;
-}
-
-#scroll {
-    background-color: transparent;
-    margin-top: 2px;
-    border-radius: 0px;
-}
-
-#scroll viewport {
-    background-color: transparent;
-    border-radius: 0px;
-}
-
-#inner-box {
-    background-color: transparent;
-    padding: 1px;
-    border-radius: 0px;
+    padding: 6px;
+    border-radius: 0;
 }
 
 /* ===== INPUT FIELD ===== */
 #input {
-    background-color: rgba(51, 204, 255, 0.1);
-    border: 1px solid #33ccff;
-    border-radius: 0px;
-    color: #ffffff;
-    padding: 4px 8px;
-    margin-bottom: 2px;
-    font-size: 12px;
-    font-weight: 400;
+    background-color: #0f1528;
+    border: 2px solid #1a3a5c;
+    border-radius: 0;
+    color: #e0e0e0;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    caret-color: #33ccff;
 }
 
 #input:focus {
-    background-color: rgba(51, 204, 255, 0.2);
-    border-color: #00ff99;
-    box-shadow: 0 0 0 2px rgba(0, 255, 153, 0.3);
+    background-color: #0f1528;
+    border-color: #33ccff;
     outline: none;
+}
+
+/* ===== SCROLL AREA ===== */
+#scroll {
+    background-color: transparent;
+    margin-top: 2px;
+    border-radius: 0;
+}
+
+#scroll viewport {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+#inner-box {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
 }
 
 /* ===== LIST ENTRIES ===== */
 #entry {
     background-color: transparent;
     border: none;
-    border-left: 2px solid transparent;
-    border-radius: 0px;
-    color: #ffffff;
-    padding: 3px 8px;
-    margin: 0px;
-    transition: all 0.15s ease;
+    border-left: 3px solid transparent;
+    border-radius: 0;
+    color: #909090;
+    padding: 6px 10px;
+    margin: 0;
+    transition: all 0.1s ease;
 }
 
 #entry:hover {
-    background-color: rgba(51, 204, 255, 0.15);
+    background-color: rgba(51, 204, 255, 0.12);
     border-left-color: #33ccff;
-    color: #33ccff;
+    color: #e0e0e0;
 }
 
 #entry:selected {
-    background-color: rgba(0, 255, 153, 0.2);
+    background-color: rgba(51, 204, 255, 0.2);
     border-left-color: #00ff99;
-    color: #00ff99;
-    font-weight: 500;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 #entry:selected:hover {
-    background-color: rgba(0, 255, 153, 0.3);
-    color: #00ff99;
+    background-color: rgba(0, 255, 153, 0.25);
+    border-left-color: #00ff99;
 }
 
 /* ===== TEXT & ICONS ===== */
@@ -105,18 +109,18 @@
 }
 
 #entry:selected #text {
-    color: #00ff99;
-    font-weight: 500;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 #entry:hover #text {
-    color: #33ccff;
+    color: #e0e0e0;
 }
 
 #img {
     margin-right: 10px;
-    opacity: 0.9;
-    transition: opacity 0.15s ease;
+    opacity: 0.8;
+    transition: opacity 0.1s ease;
 }
 
 #entry:selected #img,
