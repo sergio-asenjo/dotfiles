@@ -7,3 +7,4 @@ Follow the table below: include the relative file path, the modification date (I
 | File | Date | Description |
 |------|------|-------------|
 | `zsa_moonlander_2025-10-25` | 2025-10-25 | Removed tilde `´` from each vowel. |
+| `zsa_moonlander_2026-02-10` | 2026-02-10 | New layer 3 for left keyboard tiling |
