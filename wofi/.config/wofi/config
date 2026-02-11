@@ -1,11 +1,11 @@
-width=500
-height=250
-corner-radius=0
+width=450
+height=220
+corner-radius=2
 show=drun
 prompt=Search...
 matching=contains
 insensitive=true
 allow_images=true
-image_size=24
+image_size=20
 gtk_dark=true
 hide_scroll=false

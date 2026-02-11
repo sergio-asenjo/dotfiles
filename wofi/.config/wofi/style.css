@@ -1,56 +1,54 @@
 /* ============================================
-   Waybar Coordinated Compact - Wofi
-   Cyan/green accents matching waybar gradient
+   Wofi - Dark Theme (Matching Waybar)
    ============================================ */
 
-/* ===== COLOR PALETTE (from waybar) =====
-   Background: #0a0e27  (dark navy - original wofi bg)
-   Surface:    #0f1528  (slightly lighter)
-   Foreground: #e0e0e0  (bright gray)
-   Bright:     #ffffff  (white)
-   Cyan:       #33ccff  (from waybar gradient)
-   Green:      #00ff99  (from waybar gradient)
-   Dim text:   #909090  (muted gray)
-   Border:     #1a3a5c  (dark cyan-border)
+/* ===== COLOR PALETTE =====
+   Background:    #1a1a1a  (dark charcoal)
+   Surface:       #252525  (slightly lighter)
+   Foreground:    #ffffff  (full white)
+   Dim text:      #aaaaaa  (muted gray)
+   Empty text:    #666666  (dark gray)
+   Border:        #333333  (subtle border)
+   Urgent/Accent: #ff6b6b  (red for urgent)
    ========================= */
 
 /* ===== GLOBAL STYLES ===== */
 * {
     font-family: "Zenbones Mono", monospace;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 /* ===== MAIN WINDOW ===== */
 #window {
-    background-color: #0a0e27;
-    border: 2px solid #1a3a5c;
-    border-radius: 0;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
 }
 
 #outer-box {
     background-color: transparent;
-    padding: 6px;
-    border-radius: 0;
+    padding: 4px;
+    border-radius: 2px;
 }
 
 /* ===== INPUT FIELD ===== */
 #input {
-    background-color: #0f1528;
-    border: 2px solid #1a3a5c;
-    border-radius: 0;
-    color: #e0e0e0;
-    padding: 8px 12px;
-    margin-bottom: 4px;
-    font-size: 13px;
+    background-color: #252525;
+    border: 1px solid #333333;
+    border-radius: 2px;
+    color: #ffffff;
+    padding: 6px 10px;
+    margin-bottom: 2px;
+    font-size: 12px;
     font-weight: 600;
-    caret-color: #33ccff;
+    caret-color: #ffffff;
 }
 
 #input:focus {
-    background-color: #0f1528;
-    border-color: #33ccff;
+    background-color: #252525;
+    border-color: #666666;
     outline: none;
 }
 
@@ -76,30 +74,30 @@
 #entry {
     background-color: transparent;
     border: none;
-    border-left: 3px solid transparent;
+    border-left: 1px solid transparent;
     border-radius: 0;
-    color: #909090;
-    padding: 6px 10px;
+    color: #aaaaaa;
+    padding: 4px 8px;
     margin: 0;
     transition: all 0.1s ease;
 }
 
 #entry:hover {
-    background-color: rgba(51, 204, 255, 0.12);
-    border-left-color: #33ccff;
-    color: #e0e0e0;
+    background-color: #252525;
+    border-left-color: #666666;
+    color: #ffffff;
 }
 
 #entry:selected {
-    background-color: rgba(51, 204, 255, 0.2);
-    border-left-color: #00ff99;
+    background-color: #333333;
+    border-left-color: #ffffff;
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #entry:selected:hover {
-    background-color: rgba(0, 255, 153, 0.25);
-    border-left-color: #00ff99;
+    background-color: #3a3a3a;
+    border-left-color: #ffffff;
 }
 
 /* ===== TEXT & ICONS ===== */
@@ -110,15 +108,15 @@
 
 #entry:selected #text {
     color: #ffffff;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 #entry:hover #text {
-    color: #e0e0e0;
+    color: #ffffff;
 }
 
 #img {
-    margin-right: 10px;
+    margin-right: 8px;
     opacity: 0.8;
     transition: opacity 0.1s ease;
 }

@@ -1,14 +1,15 @@
 * {
     font-family: "Zenbones Mono", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 window#waybar {
-    background: linear-gradient(90deg, rgba(51, 204, 255, 0.5) 0%, rgba(0, 255, 153, 0.5) 100%);
+    background: #1a1a1a;
     color: #ffffff;
     transition-property: background;
     transition-duration: .5s;
+    border-bottom: 1px solid #333333;
 }
 
 window#waybar.hidden {
@@ -16,16 +17,16 @@ window#waybar.hidden {
 }
 
 window#waybar.termite {
-    background-color: #3F3F3F;
+    background-color: #1a1a1a;
 }
 
 window#waybar.chromium {
-    background-color: #000000;
+    background-color: #1a1a1a;
     border: none;
 }
 
 button {
-    box-shadow: inset 0 -3px transparent;
+    box-shadow: inset 0 -2px transparent;
     border: none;
     border-radius: 0;
 }
@@ -33,7 +34,7 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -2px #ffffff;
 }
 
 #pulseaudio:hover {
@@ -41,42 +42,42 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 2px 8px;
+    padding: 2px 6px;
     background-color: transparent;
     color: #ffffff;
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 #workspaces button:hover {
     color: #ffffff;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 #workspaces button.empty {
-    color: #555555;
-    border-bottom: 2px solid transparent;
+    color: #666666;
+    border-bottom: 1px solid transparent;
 }
 
 #workspaces button.active {
-    color: #00ff99;
-    border-bottom: 3px solid #00ff99;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
     font-weight: 900;
 }
 
 #workspaces button.visible:not(.active) {
-    color: #33ccff;
-    border-bottom: 2px solid #33ccff;
+    color: #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
 }
 
 #workspaces button.urgent {
-    color: #ffff00;
-    border-bottom: 3px solid #ffff00;
+    color: #ff6b6b;
+    border-bottom: 2px solid #ff6b6b;
     font-weight: 900;
 }
 
 #mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: #333333;
+    box-shadow: inset 0 -2px #ffffff;
 }
 
 #clock,
@@ -96,7 +97,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
+    padding: 0 8px;
     color: #ffffff;
 }
 
@@ -118,13 +119,11 @@ button:hover {
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
 }
 
 #battery.charging, #battery.plugged {
     color: #ffffff;
-    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -135,7 +134,7 @@ button:hover {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: #1a1a1a;
 }
 
 #cpu {
@@ -163,25 +162,23 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    color: #666666;
 }
 
 #wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+    color: #ffffff;
 }
 
 #wireplumber.muted {
-    background-color: #f53c3c;
+    color: #ff6b6b;
 }
 
 #tray {
     color: #ffffff;
-    background: linear-gradient(90deg, rgba(51, 204, 255, 0.3) 0%, rgba(0, 255, 153, 0.3) 100%);
-    padding: 0 10px;
-    border-radius: 5px;
-    margin: 0 5px;
+    background: #252525;
+    padding: 0 8px;
+    border-radius: 3px;
+    margin: 0 4px;
 }
 
 #tray > .passive {
@@ -190,33 +187,31 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #ff6b6b;
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    color: #666666;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    color: #ffffff;
 }
 
 #mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
+    color: #ffffff;
 }
 
 #mpd.disconnected {
-    background-color: #f53c3c;
+    color: #ff6b6b;
 }
 
 #mpd.stopped {
-    background-color: #90b1b1;
+    color: #666666;
 }
 
 #mpd.paused {
-    background-color: #51a37a;
+    color: #aaaaaa;
 }
 
 #language {

@@ -1,6 +1,6 @@
 {
-    "height": 30,
-    "spacing": 4,
+    "height": 26,
+    "spacing": 2,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -59,7 +59,7 @@
         }
     },
     "tray": {
-        "spacing": 10,
+        "spacing": 8,
         "icons": {
             "blueman": "bluetooth"
         }
@@ -71,7 +71,7 @@
         "calendar": {
             "mode": "month",
             "format": {
-                "today": "<span color='#ffcc66'><b>{}</b></span>"
+                "today": "<span color='#ffffff'><b>{}</b></span>"
             }
         }
     },
