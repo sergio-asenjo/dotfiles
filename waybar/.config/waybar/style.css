@@ -141,6 +141,11 @@ label:focus {
     color: #ffffff;
 }
 
+#custom-gpu {
+    color: #ffffff;
+    padding: 0 8px;
+}
+
 #memory {
     color: #ffffff;
 }

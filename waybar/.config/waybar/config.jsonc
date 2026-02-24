@@ -11,6 +11,8 @@
     "modules-right": [
         "pulseaudio",
         "custom/separator",
+        "custom/gpu",
+        "custom/separator",
         "network",
         "custom/separator",
         "cpu",
@@ -125,6 +127,13 @@
     },
     "custom/separator": {
         "format": "|",
+        "tooltip": false
+    },
+    "custom/gpu": {
+        "format": "{percentage}% GPU",
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | xargs -I{} echo '{\"percentage\":{},\"text\":{} }'",
+        "return-type": "json",
+        "interval": 2,
         "tooltip": false
     }
 }
