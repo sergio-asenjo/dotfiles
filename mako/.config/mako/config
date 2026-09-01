@@ -1,0 +1,26 @@
+## Mako config — dark, squared, matches theme (#0d0e11 / accent #4f8cff)
+
+anchor=top-right
+margin=10
+width=360
+height=160
+padding=12
+border-size=2
+border-radius=0
+max-visible=5
+
+default-timeout=8000
+ignore-timeout=0
+
+background-color=#0d0e11ee
+text-color=#e6e8ec
+border-color=#4f8cff
+progress-color=#4f8cff
+
+font=sans-serif 10
+
+markup=1
+format=<b>%s</b>\n%b
+history=1
+icons=1
+icon-path=/usr/share/icons/hicolor/scalable/status
