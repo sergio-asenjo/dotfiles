@@ -48,7 +48,7 @@ case "$choice" in
     "Edit last screenshot")
         # Find and edit the most recent screenshot
         last_screenshot=$(find "$SCREENSHOTS_DIR" -maxdepth 1 -type f -name "Screenshot_*.png" -printf '%T@ %p\n' 2>/dev/null | 
-            sort -rn | head -n1 | cut -d' ' -f2-)
+            sort -rn | awk 'NR==1 {sub(/^[^ ]+ /, ""); print}')
         if [[ -n "$last_screenshot" ]] && command -v swappy &>/dev/null; then
             swappy -f "$last_screenshot" 2>/dev/null &
         fi
